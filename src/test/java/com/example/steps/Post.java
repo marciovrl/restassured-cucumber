@@ -12,21 +12,22 @@ public class Post {
 
     private RequestSpecification request;
     private Response response;
-    private ValidatableResponse json;
+    // private ValidatableResponse json;
     private String ENDPOINT = "https://jsonplaceholder.typicode.com";
 
-    @Given("^use endpoint posts$")
+    @Given("use endpoint posts")
     public void use_endpoint_posts() {
         request = given().basePath("posts").contentType(ContentType.JSON);
     }
 
-    @When("^ready all Post item$")
+    @When("ready all Post item")
     public void ready_all_Post_item() {
         response = request.when().get(ENDPOINT);
     }
 
-    @Then("^I view all Post items$")
+    @Then("I view all Post items")
     public void i_view_all_Post_items() {
-        json = response.then().statusCode(200);
+        // json = response.then().statusCode(200);
+        response.then().statusCode(200);
     }
 }
