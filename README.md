@@ -1,18 +1,23 @@
 # restassured-cucumber-example
 
-Example of testing and validating REST services in Java with REST-assured + Cucumber
+Example of tests of an API using REST-assured and Cucumber. The API used for testing is [JSONPlaceholder](https://jsonplaceholder.typicode.com/).
 
-# Prerequisites
+## Getting started
 
-- Java installed and configured.
-- Maven installed and configured.
-- Clone repository:
+- [Java](https://www.java.com/en/)<br>
+- [Maven](https://maven.apache.org/)<br>
 
-```
-https://github.com/marciovrl/restassured-cucumber-example.git
-```
+## Configuration
 
-# Run
+### `git clone https://github.com/marciovrl/restassured-cucumber.git`
+
+Clone the project
+
+### `mvn install`
+
+Install the dependencies
+
+## Commands
 
 ### `make help`
 
