@@ -1,4 +1,4 @@
-package com.example.steps;
+package steps;
 
 import cucumber.api.java.en.*;
 import io.restassured.http.ContentType;
