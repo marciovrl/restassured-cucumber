@@ -1,49 +1,60 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.example</groupId>
-  <artifactId>cucumber</artifactId>
+  <artifactId>restassured-cucumber</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>cucumber</name>
-  <url>http://maven.apache.org</url>
-  <dependencies>
 
+  <name>restassured-cucumber</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
+    <surefire.version>3.0.0-M5</surefire.version>
+    <junit.version>4.13.1</junit.version>
+    <restassured.version>4.3.1</restassured.version>
+    <info.cukes.cucumber.junit.version>1.2.5</info.cukes.cucumber.junit.version>
+    <info.cukes.cucumber.java.version>1.2.0</info.cukes.cucumber.java.version>
+  </properties>
+
+  <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>${junit.version}</version>
     </dependency>
-
     <dependency>
       <groupId>io.rest-assured</groupId>
       <artifactId>rest-assured</artifactId>
-      <version>4.3.0</version>
+      <version>${restassured.version}</version>
     </dependency>
-
     <dependency>
       <groupId>info.cukes</groupId>
       <artifactId>cucumber-junit</artifactId>
-      <version>1.2.5</version>
+      <version>${info.cukes.cucumber.junit.version}</version>
     </dependency>
-
     <dependency>
       <groupId>info.cukes</groupId>
       <artifactId>cucumber-java</artifactId>
-      <version>1.2.0</version>
+      <version>${info.cukes.cucumber.java.version}</version>
     </dependency>
-
-    <dependency>
-      <groupId>io.cucumber</groupId>
-      <artifactId>cucumber-junit</artifactId>
-      <version>5.6.0</version>
-      <scope>test</scope>
-    </dependency>
-
-    <dependency>
-      <groupId>io.cucumber</groupId>
-      <artifactId>cucumber-java</artifactId>
-      <version>5.6.0</version>
-    </dependency>
-
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${surefire.version}</version>
+        <configuration>
+          <includes>
+            <include>CucumberRunner.java</include>
+          </includes>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
