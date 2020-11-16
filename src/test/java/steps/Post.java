@@ -3,7 +3,6 @@ package steps;
 import cucumber.api.java.en.*;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 
 import static io.restassured.RestAssured.*;
@@ -12,7 +11,6 @@ public class Post {
 
     private RequestSpecification request;
     private Response response;
-    // private ValidatableResponse json;
     private String ENDPOINT = "https://jsonplaceholder.typicode.com";
 
     @Given("use endpoint posts")
@@ -27,7 +25,6 @@ public class Post {
 
     @Then("I view all Post items")
     public void i_view_all_Post_items() {
-        // json = response.then().statusCode(200);
         response.then().statusCode(200);
     }
 }
