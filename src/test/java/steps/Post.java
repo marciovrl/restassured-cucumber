@@ -1,6 +1,8 @@
 package steps;
 
+import cucumber.api.java.Before;
 import cucumber.api.java.en.*;
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -11,16 +13,20 @@ public class Post {
 
     private RequestSpecification request;
     private Response response;
-    private String ENDPOINT = "https://jsonplaceholder.typicode.com";
+
+    @Before
+    public void setUp() {
+        RestAssured.baseURI = "https://jsonplaceholder.typicode.com";
+    }
 
     @Given("use endpoint posts")
     public void use_endpoint_posts() {
-        request = given().basePath("posts").contentType(ContentType.JSON);
+        request = given().contentType(ContentType.JSON);
     }
 
     @When("ready all Post item")
     public void ready_all_Post_item() {
-        response = request.when().get(ENDPOINT);
+        response = request.when().get("/posts");
     }
 
     @Then("I view all Post items")
