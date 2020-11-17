@@ -79,4 +79,8 @@ buildNumber.properties
 # Ignore all local history of files
 .history
 
+.classpath
+.project
+.settings/
+
 # End of https://www.gitignore.io/api/java,macos,maven,visualstudiocode
